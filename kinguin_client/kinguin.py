@@ -1,3 +1,6 @@
+from kinguin_client.clients.products_client import ProductsClient
+
+
 class Kinguin:
 
     BASE_URL = "https://gateway.kinguin.net/esa/"
@@ -9,3 +12,6 @@ class Kinguin:
     @property
     def url(self):
         return f"{Kinguin.BASE_URL}{Kinguin.API_PATH}"
+
+    def products(self):
+        return ProductsClient(self.url, self.api_key)
