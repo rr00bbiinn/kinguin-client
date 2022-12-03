@@ -1,4 +1,3 @@
-
 import requests
 from requests import Response
 
@@ -33,6 +32,12 @@ class BaseClient:
         if response.status_code in [200, 201, 202, 204]:
             return response.json()
         else:
+            if "application/json" not in response.headers.get("Content-Type", ""):
+                status_code, reason = response.status_code, response.reason
+                raise KinguinError(
+                    f"Unknown error (status code: {status_code}, reason: {reason})"
+                )
+
             data = response.json()
             error_msg, status_code, kind = (
                 data.get("detail") or "Unknown error",
@@ -40,7 +45,9 @@ class BaseClient:
                 data.get("kind"),
             )
 
-            raise KinguinError(f"{error_msg} (status code: {status_code}, kind: {kind})")  # noqa: E501
+            raise KinguinError(
+                f"{error_msg} (status code: {status_code}, kind: {kind})"
+            )  # noqa: E501
 
 
 class KinguinError(Exception):
