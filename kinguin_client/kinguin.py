@@ -1,4 +1,5 @@
 from kinguin_client.clients.balance_client import BalanceClient
+from kinguin_client.clients.order_client import OrderClient
 from kinguin_client.clients.products_client import ProductsClient
 
 
@@ -16,6 +17,9 @@ class Kinguin:
 
     def products(self):
         return ProductsClient(self.url, self.api_key)
+
+    def orders(self):
+        return OrderClient(self.url, self.api_key)
 
     def balance(self):
         return BalanceClient(self.url, self.api_key)
