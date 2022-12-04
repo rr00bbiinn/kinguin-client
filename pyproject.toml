@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "kinguin-client"
-version = "0.1.2"
+version = "0.2.0"
 description = "Python API wrapper for Kinguin"
 authors = ["rr00bbiinn <robin@itlandslaget.se>"]
 readme = 'README.md'
