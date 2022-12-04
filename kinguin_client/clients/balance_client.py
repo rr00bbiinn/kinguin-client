@@ -1,6 +1,6 @@
-from .base_client import BaseClient
+from .base_client import GetClient
 
 
-class BalanceClient(BaseClient):
+class BalanceClient(GetClient):
     def api_resource(self):
         return "balance"

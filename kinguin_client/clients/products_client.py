@@ -1,6 +1,6 @@
-from .base_client import BaseClient
+from .base_client import GetClient
 
 
-class ProductsClient(BaseClient):
+class ProductsClient(GetClient):
     def api_resource(self):
         return "products"
