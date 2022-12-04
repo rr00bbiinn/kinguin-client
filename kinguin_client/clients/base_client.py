@@ -21,7 +21,9 @@ class BaseClient:
         if response.status_code in [200, 201, 202, 204]:
             return response.json()
         else:
-            if "application/json" not in response.headers.get("Content-Type", ""):  # noqa: E501
+            if "application/json" not in response.headers.get(
+                "Content-Type", ""
+            ):  # noqa: E501
                 status_code, reason = response.status_code, response.reason
                 raise KinguinError(
                     f"Unknown error (status code: {status_code}, reason: {reason})"  # noqa: E501
@@ -53,7 +55,6 @@ class GetClient(BaseClient):
 
 
 class PostClient(BaseClient):
-
     def post(self):
         raise NotImplementedError()
 
