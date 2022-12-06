@@ -20,6 +20,13 @@ client.orders().get()
 {'results': [], 'item_count': 0}
 ```
 
+## What works?
+
+- [x] Get products (`Kinguin.products().get()`)
+- [x] Get orders (`Kinguin.orders().get()`)
+- [x] Check your balance (`Kinguin.balance().get()`)
+- [ ] Post orders (`Kinguin.orders().post(payload)`)
+
 ## License
 
 MIT
